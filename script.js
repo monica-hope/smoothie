@@ -48,8 +48,46 @@
 
                 return totalPrice.toFixed(2);
             }
+
+ }
+                function placeOrder() {
+            // 1. Get all the data from the form
+            const base = document.getElementById('base').value;
+            const notes = document.getElementById('notes').value;
+
+            const fruits = [];
+            document.querySelectorAll('input[name="fruits"]:checked').forEach(fruit => {
+                fruits.push(fruit.value);
+            });
+
+            const addins = [];
+            document.querySelectorAll('input[name="addins"]:checked').forEach(addin => {
+                addins.push(addin.value);
+            });
+
+            const size = document.querySelector('input[name="size"]:checked').value;
+
+            // 2. Create a new Smoothie object
+            const mySmoothie = new Smoothie(base, fruits, addins, size, notes);
+
+            // 3. Get the description and price
+            const description = mySmoothie.getDescription();
+            const price = mySmoothie.calculatePrice();
+
+            // 4. Visually output the description to the HTML page
+            const orderSummaryDiv = document.getElementById('orderSummary');
+            orderSummaryDiv.innerHTML = `
+                <h2>Your Smoothie Order is Confirmed!</h2>
+                <p><strong>Description:</strong> ${description}</p>
+                <p><strong>Total Price:</strong> $${price}</p>
+            `;
+
+            // Make the summary section visible with a fade-in effect
+            orderSummaryDiv.classList.add('visible');
         }
-    
+
+        // Event listener for the order button
+        document.getElementById('orderBtn').addEventListener('click', placeOrder);
         
         
         
