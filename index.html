@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Smoothie Machine</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Blend Your Perfect Smoothie! </h1>
+
+        <div class="form-container">
+            <form id="smoothieForm">
+                <div class="form-section">
+                    <h2>Choose a Base:</h2>
+                    <select id="base" name="base">
+                        <option value="Yogurt" data-price="2.00">Yogurt</option>
+                        <option value="Almond Milk" data-price="1.50">Almond Milk</option>
+                        <option value="Orange Juice" data-price="1.75">Orange Juice</option>
+                        <option value="Milk" data-price="1.50">Milk</option>
+                    </select>
+                </div>
+
+                <div class="form-section">
+                    <h2>Select Your Fruits:</h2>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="fruits" value="Strawberry" data-price="1.00"> Strawberry</label>
+                        <label><input type="checkbox" name="fruits" value="Banana" data-price="0.75"> Banana</label>
+                        <label><input type="checkbox" name="fruits" value="Mango" data-price="1.25"> Mango</label>
+                        <label><input type="checkbox" name="fruits" value="Pineapple" data-price="1.25"> Pineapple</label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Add-Ins:</h2>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="addins" value="Protein Powder" data-price="2.50"> Protein Powder</label>
+                        <label><input type="checkbox" name="addins" value="Chia Seeds" data-price="1.00"> Chia Seeds</label>
+                        <label><input type="checkbox" name="addins" value="Spinach" data-price="0.50"> Spinach</label>
+                        <label><input type="checkbox" name="addins" value="Honey" data-price="0.50"> Honey</label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Choose a Size:</h2>
+                    <div class="radio-group">
+                        <label><input type="radio" name="size" value="Small" data-price="0.00" checked> Small</label>
+                        <label><input type="radio" name="size" value="Medium" data-price="1.00"> Medium (+ $1.00)</label>
+                        <label><input type="radio" name="size" value="Large" data-price="2.00"> Large (+ $2.00)</label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Special Notes:</h2>
+                    <textarea id="notes" placeholder="Any special instructions..."></textarea>
+                </div>
+
+                <button type="button" id="orderBtn">Place Order</button>
+            </form>
+        </div>
+
+        <div id="orderSummary" class="order-summary">
+            </div>
+    </div>
