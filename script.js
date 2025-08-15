@@ -25,8 +25,31 @@
                 return description;
             }
        
-        
-        
-        
-        }
+     calculatePrice() {
+                let totalPrice = 0;
 
+                // Base price
+                const basePriceElement = document.querySelector(`#base option[value="${this.base}"]`);
+                totalPrice += parseFloat(basePriceElement.dataset.price);
+
+                // Fruits price
+                document.querySelectorAll('input[name="fruits"]:checked').forEach(fruit => {
+                    totalPrice += parseFloat(fruit.dataset.price);
+                });
+
+                // Add-ins price
+                document.querySelectorAll('input[name="addins"]:checked').forEach(addin => {
+                    totalPrice += parseFloat(addin.dataset.price);
+                });
+
+                // Size price
+                const sizePriceElement = document.querySelector(`input[name="size"][value="${this.size}"]`);
+                totalPrice += parseFloat(sizePriceElement.dataset.price);
+
+                return totalPrice.toFixed(2);
+            }
+        }
+    
+        
+        
+        
